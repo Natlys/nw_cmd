@@ -4,8 +4,13 @@ project "nw_cmd"
 	staticruntime "on"
 	language "c++"
 	cppdialect "c++17"
+<<<<<<< HEAD
 	targetdir (dir_out_res)
 	objdir (dir_out_int)
+=======
+	targetdir ("bin/"..dir_out.."%{prj.name}")
+	objdir ("bin/int/"..dir_out.."%{prj.name}")
+>>>>>>> 81c478b764cd2559129d5a0decde748380435998
 	pchheader "nwc_pch.hpp"
 	pchsource "src_cpp/nwc_pch.cpp"
 	files

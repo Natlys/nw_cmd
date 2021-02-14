@@ -214,6 +214,8 @@ namespace NWC
                             KeyboardEvent kbEvt(ET_KEYBOARD_CHAR, static_cast<KeyCodes>(rEvt.uChar.AsciiChar));
                             OnEvent(kbEvt);
                         }
+                        else {
+                        }
                     }
                 }
                 else if (evTypeId == FOCUS_EVENT) {
