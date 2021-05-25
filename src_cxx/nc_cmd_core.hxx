@@ -1,18 +1,16 @@
 #ifndef NC_CMD_CORE_H
 #	define NC_CMD_CORE_H
-// config //
+/* config */
 #	if (defined NC_BUILD)
 #		undef NC_BUILD
-#	endif	// NC_BUILD //
+#	endif	/* NC_BUILD */
 #	define NC_BUILD NC_BUILD_LIB
-// includes //
-#	include "nc_cmd_pch.h"
+/* includes */
+#	include "nc_cmd_pch.hxx"
 // linkage //
-// // remove old NC_API // //
 #   if (defined NC_API)
 #       undef NC_API
-#   endif   // NC_API //
-// // remake new NC_API // //
+#   endif   /* NC_API */
 #   if !(defined NC_BUILD)
 #   elif (NC_BUILD & NC_BUILD_EXE)
 #       define NC_API extern
@@ -22,7 +20,7 @@
 #       define NC_API NC_DLL_EXPORT
 #   else
 #       define NC_API NC_DLL_IMPORT
-#   endif	// NC_BUILD //
+#   endif	/* NC_BUILD */
 // types //
 typedef CHAR_INFO             nc_cmd_pxl_t;
 typedef const nc_cmd_pxl_t   nc_cmd_pxl_tc;
@@ -38,7 +36,7 @@ typedef CONSOLE_SCREEN_BUFFER_INFOEX   nc_cmd_buf_info_t;
 typedef const nc_cmd_buf_info_t       nc_cmd_buf_info_tc;
 typedef CONSOLE_SELECTION_INFO         nc_cmd_sel_info_t;
 typedef const nc_cmd_sel_info_t       nc_cmd_sel_info_tc;
-// defines //
+/* defines */
 /// 0xFF'FF'FF'FF -> 32 bits
 /// counting from left:
 /// 4 bits - red; 4 bits - blue; 4 bits - green; 4 bits - alpha
@@ -109,5 +107,5 @@ typedef const nc_cmd_sel_info_t       nc_cmd_sel_info_tc;
 #define NC_CMD_COLOR_BG_5 = 0x40,	COLOR_BG_6 = 0x50,	COLOR_BG_7 = 0x60,	COLOR_BG_8 = 0x70,
 #define NC_CMD_COLOR_BG_9 = 0x80,	COLOR_BG_10 = 0x90,	COLOR_BG_11 = 0xA0,	COLOR_BG_12 = 0xB0,
 #define NC_CMD_COLOR_BG_13 = 0xC0,	COLOR_BG_14 = 0xD0,	COLOR_BG_15 = 0xE0,	COLOR_BG_16 = 0xF0,
-// end_of_file //
+/* end_of_file */
 #endif	// NC_CMD_CORE_H //

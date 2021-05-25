@@ -1,10 +1,10 @@
-#include "../nc_cmd_pch.h"
-#include "nc_cmd_buf.h"
+#include "../nc_cmd_pch.hxx"
+#include "nc_cmd_buf.hxx"
 #if (defined NC_API)
-// getters //
-// setters //
-// predicates //
-// commands //
+/* getters */
+/* setters */
+/* predicates */
+/* commands */
 v1bit_t nc_cmd_buf_init(nc_cmd_buf_t* ref) {
     NC_CHECK(ref->handle == NC_NULL, "init error!", return NC_FALSE);
     NC_CHECK(ref->pxl_data == NC_NULL, "init error!", return NC_FALSE);
@@ -28,5 +28,5 @@ v1bit_t nc_cmd_buf_work(nc_cmd_buf_t* ref) {
     WriteConsoleOutput(ref->handle, ref->pxl_data, ref->sizes, coord, &ref->viewp);
     return NC_TRUTH;
 }
-#endif  // NC_API //
-// end_of_file //
+#endif  /* NC_API */
+/* end_of_file */

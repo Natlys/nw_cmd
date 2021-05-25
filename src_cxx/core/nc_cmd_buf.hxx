@@ -1,8 +1,8 @@
 #ifndef NC_CMD_BUFFER_H
 #   define NC_CMD_BUFFER_H
-#   include "../nc_cmd_core.h"
+#   include "../nc_cmd_core.hxx"
 #       if (defined NC_API)
-// includes //
+/* includes */
 // types //
 /// cmd_framebuffer_type
 /// description:
@@ -15,14 +15,14 @@ typedef struct {
     nc_cmd_buf_info_t buf_info;
 } nc_cmd_buf_t;
 typedef const nc_cmd_buf_t nc_cmd_buf_tc;
-// getters //
-// setters //
+/* getters */
+/* setters */
 NC_API v1bit_t nc_cmd_buf_set_pixel(nc_cmd_buf_t* ref);
 NC_API v1bit_t nc_cmd_buf_set_sizes(nc_cmd_buf_t* ref, v1u_t size_x, v1u_t size_y);
 NC_API v1bit_t nc_cmd_buf_set_viewp(nc_cmd_buf_t* ref, v1u_t coord_x, v1u_t coord_y, v1u_t size_x, v1u_t size_y);
-// commands //
+/* commands */
 NC_API v1bit_t nc_cmd_buf_init(nc_cmd_buf_t* ref);
 NC_API v1bit_t nc_cmd_buf_quit(nc_cmd_buf_t* ref);
 NC_API v1bit_t nc_cmd_buf_work(nc_cmd_buf_t* ref);
-#       endif  // NC_API //
+#       endif  /* NC_API */
 #endif // NC_CMD_BUFFER_H //

@@ -9,6 +9,6 @@ int main(int arg_num, const char* arg_str[])
     system("pause");
     return 0;
 }
-#   endif   // NC_BUILD_EXE //
-#endif  // NC_BUILD //
-// end_of_file //
+#   endif   /* NC_BUILD_EXE */
+#endif  /* NC_BUILD */
+/* end_of_file */

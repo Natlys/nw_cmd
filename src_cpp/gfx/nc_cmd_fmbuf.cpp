@@ -1,7 +1,7 @@
 #include "nc_cmd_pch.hpp"
-#include "nc_cmd_buf.h"
+#include "nc_cmd_buf.hxx"
 #if (defined NC_WAPI)
-#include "core/nc_cmd_eng.h"
+#include "core/nc_cmd_eng.hxx"
 namespace NC
 {
 	cmd_fmbuf::cmd_fmbuf() :
@@ -13,7 +13,7 @@ namespace NC
 		m_cout = CreateConsoleScreenBuffer(GENERIC_WRITE | GENERIC_READ, NULL, NULL, CONSOLE_TEXTMODE_BUFFER, NULL);
 	}
 	cmd_fmbuf::~cmd_fmbuf() { if (m_cout != NC_NULL) { CloseHandle(m_cout); m_cout = NC_NULL; } }
-    // setters //
+    /* setters */
 	v1nil_t cmd_fmbuf::set_size(v1s16_t width, v1s16_t height) {
 		m_info.dwSize = { static_cast<v1s16>(width), static_cast<v1s16>(height) };
 	}
@@ -69,7 +69,7 @@ namespace NC
 			else { set_byte(ix, y0, color_val, str[ci]); }
 		}
 	}
-    // commands //
+    /* commands */
     v1nil_t cmd_fmbuf::remake() {
 		if (m_pxl_data != NC_NULL) {
 			mem_sys::get().del_arr<cmd_pixel>(m_pxl_data, m_pxl_count);

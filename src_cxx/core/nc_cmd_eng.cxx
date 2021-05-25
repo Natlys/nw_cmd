@@ -1,10 +1,10 @@
-#include "../nc_cmd_pch.h"
-#include "nc_cmd_eng.h"
+#include "../nc_cmd_pch.hxx"
+#include "nc_cmd_eng.hxx"
 #if (defined NC_API)
 /// cmd_engine_type
 /// description:
 /// ->
-/// interface:
+/// interaction:
 /// ->
 typedef struct nc_cmd_eng_t {
     v1bit_t work_flag : 1;
@@ -14,13 +14,13 @@ typedef struct nc_cmd_eng_t {
 } nc_cmd_eng_t;
 typedef const nc_cmd_eng_t nc_cmd_eng_tc;
 static nc_cmd_eng_t nc_cmd_eng;
-// getters //
+/* getters */
 // settres //
-// predicates //
+/* predicates */
 v1bit_t nc_cmd_eng_has_work() {
     return nc_cmd_eng.work_flag;
 }
-// commands //
+/* commands */
 v1bit_t nc_cmd_eng_init() {
     NC_CHECK(nc_cmd_eng.work_flag == NC_FALSE, "init error!", return NC_FALSE);
     NC_CHECK(nc_cmd_eng.orig_oput == NC_NULL, "init error!", return NC_FALSE);
@@ -63,5 +63,5 @@ v1bit_t nc_cmd_eng_exec() {
     NC_CHECK(nc_cmd_eng_quit(), "quit error!", return NC_FALSE);
     return NC_TRUTH;
 }
-#endif  // NC_API //
-// end_of_file //
+#endif  /* NC_API */
+/* end_of_file */
