@@ -1,7 +1,7 @@
 #include "nc_cmd_pch.hpp"
-#include "nc_cmd_buf.h"
+#include "nc_cmd_buf.hxx"
 #if (defined NC_WAPI)
-#include "core/nc_cmd_eng.h"
+#include "core/nc_cmd_eng.hxx"
 namespace NC
 {
 	cmd_fmbuf::cmd_fmbuf() :
@@ -13,7 +13,7 @@ namespace NC
 		m_cout = CreateConsoleScreenBuffer(GENERIC_WRITE | GENERIC_READ, NULL, NULL, CONSOLE_TEXTMODE_BUFFER, NULL);
 	}
 	cmd_fmbuf::~cmd_fmbuf() { if (m_cout != NC_NULL) { CloseHandle(m_cout); m_cout = NC_NULL; } }
-    // setters //
+    /* setters */
 	v1nil_t cmd_fmbuf::set_size(v1s16_t width, v1s16_t height) {
 		m_info.dwSize = { static_cast<v1s16>(width), static_cast<v1s16>(height) };
 	}
@@ -42,20 +42,20 @@ namespace NC
 		if (x < 0 || y < 0) { return; }
 		v1s16_t width = get_size_x();
 		if (x > width) { return; }
-		set_pixel(NC_XY_TO_X(x, y, width), pxl_draw);
+		set_pixel(NC_NUM_2D_1D(x, y, width), pxl_draw);
 	}
 	v1nil_t cmd_fmbuf::set_pixel(v1s16 x, v1s16 y, cmd_colors color_val, cmd_pixel_types pxl_type) {
 		if (x < 0) { return; }
 		v1s16_t width = get_size_x();
 		if (x > width) { return; }
-		set_pixel(NC_XY_TO_X(x, y, width), color_val, pxl_type);
+		set_pixel(NC_NUM_2D_1D(x, y, width), color_val, pxl_type);
 	}
 	v1nil_t cmd_fmbuf::set_byte(v1s16 x, v1s16 y, cmd_colors color_val, sbyte_t bt)
 	{
 		if (x < 0 || y < 0) { return; }
 		v1s16_t width = get_size_x();
 		if (x > width) { return; }
-		size_t crd = NC_XY_TO_X(x, y, width);
+		size_t crd = NC_NUM_2D_1D(x, y, width);
 		if (crd >= m_pxl_count) { return; }
 		m_pxl_data[crd].Attributes = color_val;
 		m_pxl_data[crd].Char.AsciiChar = bt;
@@ -69,7 +69,7 @@ namespace NC
 			else { set_byte(ix, y0, color_val, str[ci]); }
 		}
 	}
-    // commands //
+    /* commands */
     v1nil_t cmd_fmbuf::remake() {
 		if (m_pxl_data != NC_NULL) {
 			mem_sys::get().del_arr<cmd_pixel>(m_pxl_data, m_pxl_count);

@@ -1,5 +1,3 @@
-# native_console
---==advanced_console_application==--\n
-since 10.01.2021...
-nc_console is my project for debugging and simple application development.
-It allows me to use simple cmd as an easy-to-use api with gui.
+# nati_code_console #
+-> this is the assistant of nati_code;\n
+-> here is command prompt that helps with scripts and commands;\n

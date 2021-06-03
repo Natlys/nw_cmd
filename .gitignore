@@ -1,5 +1,9 @@
 # directories
 bin/
+ext/
+.vs/
+data/
+ext/
 
 # gPrerequisites
 *.d
