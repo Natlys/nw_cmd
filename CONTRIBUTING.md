@@ -1,3 +1,0 @@
---==nati_code_contribution/==--
-	- [] nothing to say for now: 03.06.2021;
---==/nati_code_contribution==--

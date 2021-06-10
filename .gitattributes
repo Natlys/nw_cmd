@@ -1,5 +1,0 @@
-*.vsxproj* binary
-*.docx diff=word
-*.png diff=exif
-#*.c filter=indent
-#template export-ignore
